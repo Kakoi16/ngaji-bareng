@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Poppins:wght@400;600&display=swap');
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+:host {
+  --islamic-primary: #00695C; // Hijau tua
+  --islamic-secondary: #c5a975; // Emas lembut
+  --islamic-light: #F8F5F1; // Krem
+  --islamic-dark: #333333;
+  --font-latin: 'Poppins', sans-serif;
+  --font-arabic: 'Amiri', serif;
+}
+
+.islamic-bg {
+  --background: url('/assets/images/islamic-pattern-bg.png') repeat, linear-gradient(to bottom, #E0E2E8, #F8F5F1);
+}
+.islamic-toolbar {
+  --background: rgba(0, 45, 38, 0.25); 
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+  position: relative;
+}
+
+.title-arabic {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  animation: fadeInUp 0.7s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+
+  span, small {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  span {
+    font-family: var(--font-latin);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+  small {
+    font-family: var(--font-arabic);
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    opacity: 0.85;
+  }
+}
+
+.header-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  .header-lantern {
+    position: absolute;
+    height: 120px;
+    transform-origin: top center;
+    filter: drop-shadow(0 0 10px #FFD700);
+    z-index: 4;
+  }
+
+  .lantern-left {
+    top: -20px;
+    left: 10px;
+    animation: sway 6s ease-in-out infinite;
+  }
+
+  .lantern-right {
+    top: -20px;
+    right: 10px;
+    animation: sway 6s ease-in-out infinite 0.5s;
+  }
+
+  .header-moon {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 30px;
+    color: #F8F5F1;
+    opacity: 0.8;
+  }
+
+  .star {
+    position: absolute;
+    color: #FFFACD;
+    animation: twinkle 4s ease-in-out infinite;
+  }
+  .star-1 { top: 15%; left: 40%; font-size: 10px; animation-delay: 0s; }
+  .star-2 { top: 40%; left: 55%; font-size: 14px; animation-delay: 1s; }
+  .star-3 { top: 20%; right: 40px; font-size: 8px; animation-delay: 2.5s; }
+  .star-4 { bottom: 10%; left: 25%; font-size: 12px; animation-delay: 1.8s; }
+}
+
+.islamic-welcome {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--islamic-secondary);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+  animation: fadeInUp 0.7s ease-out forwards;
+  opacity: 0;
+
+  .islamic-pattern-top, .islamic-pattern-bottom {
+    height: 2px;
+    width: 80px;
+    background: var(--islamic-secondary);
+    margin: 10px auto;
+    opacity: 0.6;
+  }
+  
+  h2 {
+    font-family: var(--font-arabic);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--islamic-primary);
+    margin: 0;
+  }
+
+  p {
+    font-family: var(--font-latin);
+    color: var(--islamic-dark);
+    margin-top: 4px;
+  }
+}
+
+.cards-container .islamic-card {
+  --background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
+  }
+  
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .arabic-corner {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: var(--islamic-secondary);
+    color: var(--islamic-primary);
+    font-family: var(--font-arabic);
+    padding: 4px 12px;
+    border-bottom-left-radius: 20px;
+    font-weight: 700;
+  }
+
+  ion-card-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: var(--font-latin);
+    font-weight: 600;
+    color: var(--islamic-primary);
+    font-size: 1.3rem;
+
+    .icon-wrapper {
+      background: linear-gradient(135deg, var(--islamic-primary), #00796B);
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+      position: relative;
+      
+      .card-icon {
+        color: white;
+        font-size: 2.2rem;
+      }
+
+      .islamic-decoration {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px dashed var(--islamic-secondary);
+        border-radius: 50%;
+        animation: spin 30s linear infinite;
+        opacity: 0.5;
+      }
+    }
+  }
+  ion-card-content {
+    text-align: center;
+    font-family: var(--font-latin);
+    
+    p {
+      color: var(--islamic-dark);
+      font-size: 0.9rem;
+      padding: 0 10px;
+    }
+    
+    .card-footer {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      .arabic-text {
+        font-family: var(--font-arabic);
+        font-size: 1.1rem;
+        color: var(--islamic-secondary);
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.prayer-times-container {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 1.5rem;
+  
+  // Animasi masuk
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.1s; 
+
+  .prayer-times-header {
+    text-align: center;
+    margin-bottom: 16px;
+    
+    h4 {
+      font-family: var(--font-latin);
+      font-weight: 600;
+      color: var(--islamic-primary);
+      margin: 0 0 4px 0;
+      font-size: 1.1rem;
+    }
+    p {
+      font-family: var(--font-latin);
+      font-size: 0.8rem;
+      color: var(--islamic-dark);
+      margin: 0;
+      opacity: 0.8;
+    }
+  }
+
+  .prayer-times-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+  }
+
+  .prayer-time-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 8px;
+    border-radius: 12px;
+    min-width: 60px;
+    transition: all 0.3s ease;
+
+    h5 {
+      font-family: var(--font-latin);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin: 0 0 4px 0;
+      color: var(--islamic-dark);
+    }
+    span {
+      font-family: var(--font-latin);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--islamic-primary);
+    }
+    &.is-active {
+      background: var(--islamic-primary);
+      color: white;
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 105, 92, 0.4);
+
+      h5 {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      span {
+        color: white;
+        font-weight: 700;
+      }
+    }
+  }
+}

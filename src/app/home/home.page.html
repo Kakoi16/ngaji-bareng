@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="islamic-toolbar">
+
+    <div class="header-decoration">
+      <img src="/assets/images/lantern.png" alt="Lantern" class="header-lantern lantern-left">
+      
+      <ion-icon name="moon" class="header-moon"></ion-icon>
+      <ion-icon name="star" class="star star-1"></ion-icon>
+      <ion-icon name="star" class="star star-2"></ion-icon>
+      <ion-icon name="star" class="star star-3"></ion-icon>
+      <ion-icon name="star" class="star star-4"></ion-icon>
+
+      <img src="/assets/images/lantern.png" alt="Lantern" class="header-lantern lantern-right">
+    </div>
+
+    <ion-title class="title-arabic">
+      <span>Belajar Bareng</span>
+      <small>تعلم معا</small>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-padding islamic-bg">
+  <div class="welcome-header islamic-welcome">
+    <div class="islamic-pattern-top"></div>
+    <h2>السَّلاَمُ عَلَيْكُمْ</h2>
+    <p>Selamat Datang di Portal Belajar Islam</p>
+    <div class="islamic-pattern-bottom"></div>
+</div>
+
+  <div class="prayer-times-container">
+    <div class="prayer-times-header">
+      <h4>Jadwal Sholat Hari Ini</h4>
+      <p>Untuk Wilayah Cikampek & Sekitarnya</p>
+    </div>
+    <div class="prayer-times-list">
+      <div class="prayer-time-item">
+        <h5>Subuh</h5>
+        <span>04:40</span>
+      </div>
+      <div class="prayer-time-item">
+        <h5>Dzuhur</h5>
+        <span>11:58</span>
+      </div>
+      <div class="prayer-time-item">
+        <h5>Ashar</h5>
+        <span>15:20</span>
+      </div>
+      <div class="prayer-time-item is-active">
+        <h5>Maghrib</h5>
+        <span>17:53</span>
+      </div>
+      <div class="prayer-time-item">
+        <h5>Isya</h5>
+        <span>19:07</span>
+      </div>
+    </div>
+  </div>
+  <div class="cards-container">
+    <ion-card button="true" routerLink="/quran" class="islamic-card">
+      <div class="arabic-corner">ٱلْقُرْآنُ</div>
+      <ion-card-header>
+        <ion-card-title>
+          <div class="icon-wrapper">
+            <ion-icon name="book-outline" class="card-icon"></ion-icon>
+            <div class="islamic-decoration"></div>
+          </div>
+          Baca Al-Quran
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Mulai membaca ayat-ayat suci Al-Quran dengan terjemahan dan tafsir</p>
+        <div class="card-footer">
+          <span class="arabic-text">اقْرَأْ بِاسْمِ رَبِّكَ</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card button="true" routerLink="/hadist" class="islamic-card">
+      <div class="arabic-corner">الْحَدِيثُ</div>
+      <ion-card-header>
+        <ion-card-title>
+          <div class="icon-wrapper">
+            <ion-icon name="document-text-outline" class="card-icon"></ion-icon>
+            <div class="islamic-decoration"></div>
+          </div>
+          Kajian Hadist
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Pelajari hadist-hadist shahih dari berbagai kitab</p>
+        <div class="card-footer">
+          <span class="arabic-text">حديث النبي</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="islamic-footer-pattern"></div>
+</ion-content>
